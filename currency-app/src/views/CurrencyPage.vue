@@ -1,19 +1,19 @@
 <template>
     <div>
-        <Header title="Курс валют"/>
-        <h2>На {{convertDate(valutes["Date"])}}</h2>
-        <NavigationBar />
+        <h2>На {{valutes["Date"] | convertDate}}</h2>
         <CurrencyList v-bind:valutes="valutes"/>
     </div>
 </template>
 
 <script>
-import Header from '@/components/Header.vue'
-import NavigationBar from '@/components/NavigationBar.vue'
-import Currency from '@/components/Currency.vue'
 import CurrencyList from '@/components/CurrencyList.vue'
 
 export default {
+    filters: {
+        convertDate(date) {
+            return date.split("T")[0]
+        }
+    },
     data() {
         return {
             valutes: []
@@ -27,9 +27,6 @@ export default {
             })
     },
     components: {
-        Header,
-        NavigationBar,
-        Currency,
         CurrencyList
     },
     methods: {

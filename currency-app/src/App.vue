@@ -1,16 +1,24 @@
 <template>
   <div id="app">
+    <the-header :title="title"/>
+    <navigation-bar />
     <router-view />
   </div>
 </template>
 
 <script>
-
-import CurrencyPage from '@/views/CurrencyPage.vue'
+import TheHeader from '@/components/TheHeader.vue'
+import NavigationBar from '@/components/NavigationBar.vue'
 
 export default {
   components: {
-    CurrencyPage
+    TheHeader,
+    NavigationBar
+  },
+  computed: {
+    title() {
+      return this.$route.meta.title
+    }
   }
 }
 </script>

@@ -10,11 +10,17 @@ export default new Router({
     routes: [
         {
             path: '/',
-            component: CurrencyPage
+            component: CurrencyPage,
+            meta: {
+                title: 'Курс валют',
+            }
         },
         {
             path: '/converter',
-            component: ConverterPage
+            component: ConverterPage,
+            meta: {
+                title: 'Конвертер',
+            }
         }
     ]
 })

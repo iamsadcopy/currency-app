@@ -1,9 +1,9 @@
 <template>
-    <li v-bind:class="{plus: isPositiveGrowth(valuteInfo['Value'], valuteInfo['Previous'])}">
+    <li :class="{plus: isGrowth}">
             <span>{{valuteInfo["CharCode"]}}</span>
             <span>{{valuteInfo["Name"]}}</span>
             <span>{{valuteInfo["Value"] / valuteInfo["Nominal"] | fixDecimal}} RUB</span>
-            <span>{{getStatus(valuteInfo['Value'], valuteInfo['Previous'])}}</span>
+            <span>{{diff}}</span>
     </li>
 </template>
 
@@ -21,17 +21,19 @@ export default {
             return value.toFixed(2)
         }
     },
-    methods: {
-        getStatus(firstValue, secondValue) {
-            let result = (secondValue - firstValue) / firstValue * 100
+    computed: {
+        diff() {
+            const {Value, Previous} = this.valuteInfo
+            let result = (Value - Previous) / Previous * 100
             result = result.toFixed(2)
-            return secondValue > firstValue ? `+${result}%` : `${result}%`
+            return Previous > Value ? `${result}%` : `+${result}%`
         },
-        isPositiveGrowth(firstValue, secondValue) {
-            let result = (secondValue - firstValue) / firstValue * 100
+        isGrowth() {
+            const {Value, Previous} = this.valuteInfo
+            let result = (Value - Previous) / Previous * 100
             return Number(result) >= 0 ? true : false
         }
-    }
+    },
 }
 </script>
 

@@ -1,12 +1,12 @@
 <template>
-    <nav>
+    <ul>
         <li><router-link to="/">Курс валют</router-link></li>
         <li><router-link to="/converter">Конвертер валют</router-link></li>
-    </nav>
+    </ul>
 </template>
 
 <style scoped>
-nav {
+ul {
     display: flex;
     list-style-type: none;
     margin: 0;
