@@ -2,7 +2,7 @@
     <div>
         <ul>
             <CurrencyItem 
-                v-bind:key="valuteInfo"
+                v-bind:key="valuteInfo.ID"
                 v-for="valuteInfo of Object.values(valutes['Valute'])"
                 v-bind:valuteInfo="valuteInfo"
             />
