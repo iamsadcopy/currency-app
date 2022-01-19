@@ -1,25 +1,25 @@
 <template>
   <div id="app">
-    <the-header :title="title"/>
+    <the-header :title="title" />
     <navigation-bar />
     <router-view />
   </div>
 </template>
 
 <script>
-import TheHeader from '@/components/TheHeader.vue'
-import NavigationBar from '@/components/NavigationBar.vue'
+import TheHeader from "@/components/TheHeader.vue"
+import NavigationBar from "@/components/NavigationBar.vue"
 
 export default {
   components: {
     TheHeader,
-    NavigationBar
+    NavigationBar,
   },
   computed: {
     title() {
       return this.$route.meta.title
-    }
-  }
+    },
+  },
 }
 </script>
 

@@ -1,21 +1,21 @@
 <template>
-    <div>
-        {{result}}
-    </div>
+  <div>
+    {{ result }}
+  </div>
 </template>
 
- <script>
- export default {
-     props: {
-         result: {
-             type: String
-         }
-     },
- }
- </script>
+<script>
+export default {
+  props: {
+    result: {
+      type: String,
+    },
+  },
+}
+</script>
 
- <style scoped>
- div {
-     padding: 2rem;
- }
- </style>
+<style scoped>
+div {
+  padding: 2rem;
+}
+</style>
